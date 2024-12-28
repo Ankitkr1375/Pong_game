@@ -12,8 +12,8 @@ screen.tracer(0)
 r_paddle = Poddle(350,0)
 l_paddle = Poddle(-350,0)
 ball = Ball()
-score_x = Scoreboard(60,260,"Left")
-score_y = Scoreboard(-60,260,"Right")
+score_l = Scoreboard(60,260,"Left")
+score_w = Scoreboard(-60,260,"Right")
 screen.listen()
 screen.onkey(r_paddle.go_up,"Up")
 screen.onkey(r_paddle.go_down,"Down")
@@ -33,15 +33,15 @@ while game_is_on:
     #  detect colloison with left paddle
     if ball.xcor() > 370:
         ball.reset_position()
-        score_y.increase_score()
-        if score_y.score == 5:
-            score_y.game_over()
+        score_w.increase_score()
+        if score_w.score == 1:
+            score_l.game_over()
             game_is_on = False
     if ball.xcor() < -370:
         ball.reset_position()
-        score_x.increase_score()
-        if score_x.score == 5:
-            score_x.game_over()
+        score_l.increase_score()
+        if score_l.score == 1:
+            score_w.game_over()
             game_is_on = False
 
         
